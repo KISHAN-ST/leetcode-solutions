@@ -1,17 +1,11 @@
 class Solution(object):
     def removeDuplicates(self, s):
-        stack=[]
-        top=-1
+        stack = []
+        
         for ch in s:
-            if top>=0 and stack[top]==ch:
+            if stack and stack[-1] == ch:
                 stack.pop()
-                top-=1
             else:
                 stack.append(ch)
-                top+=1
-        return "".join(stack)
-        """
-        :type s: str
-        :rtype: str
-        """
         
+        return "".join(stack)
